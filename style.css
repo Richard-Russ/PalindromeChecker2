@@ -1,0 +1,10 @@
+body{
+    font-family: sans-serif;
+    background-color: crimson;
+    color: aqua;
+}
+button{
+    background-color: black;
+    -webkit-text-fill-color: blue;
+  
+}

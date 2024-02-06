@@ -1,0 +1,81 @@
+<!--Richard Russ-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Links css code-->
+    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Palindrome Checker</title>
+</head>
+<body>
+    <h1>Palindrome Checker</h1>
+    <!--for the user to input their name-->
+    <input type="text" id="firstname" placeholder="Enter your first name">
+    <!--for the user to input their last name-->
+    <input type="text" id="lastname" placeholder="Enter your last name">
+    <!-- for the user to type in a word-->
+    <input type="text" id="wordInput" placeholder="Enter a word">
+    <!--for the user to input their zip code-->
+    <input type="text" id="zipCode" placeholder="Enter your zipcode">
+    <!--my browser refuses to allow autoplayed background music without permission so this button allows said permission-->
+    <button onclick="requestPermissionToPlayMusic()">Grant Access to Play Background Music</button>
+    <!--button to run the Palindrome Checker-->
+    <button onclick="checkPalindrome()">Check</button>
+    <p id="result"></p>
+    <p id="length"></p>
+<audio id= "background music" src="C:\Users\krato\Downloads\DokiDokiLiteratureClub!.mp3" ></audio>
+    <script>
+       function requestPermissionToPlayMusic() {
+            // Request user's permission to play background music
+            var audio = document.getElementById('background music');
+            if (audio.paused) {
+                audio.play();
+                alert("Background music is now playing. Enjoy!");
+            } else {
+                alert("Background music is already playing.");
+            }
+        }
+        //script that runs on button press
+        function checkPalindrome() {
+            //retrieves user input and converts it to lowercase
+            const word = document.getElementById('wordInput').value.toLowerCase();
+            //reverses the user input
+            const reversedWord = word.split('').reverse().join('');
+            //call to display if the word is a palindrome or not
+            const result = document.getElementById('result');
+            //gets first name and last name character values
+            var firstName = document.getElementById('firstname').value
+            var lastName = document.getElementById('lastname').value
+            var nameLength = firstName.length + lastName.length
+            //checks the user's zipcode
+            var zipCode = document.getElementById("zipCode").value
+            var zipLength = zipCode.length 
+            //checks the length of the first and last name against a 20 character limit
+            if (nameLength > 20) {
+                alert("your name is too long");
+                return;
+            } else 
+            //checks zip code for the secret message
+            if(zipLength === 5) {
+                    alert("This is a secret message")
+                    
+                }
+                else{
+                    alert("this zip code is invalid")
+                return;
+                }
+                {
+                //checks if a word is a palindrome and displays the result 
+                if (word === reversedWord) {
+                    result.textContent = '"' + word + '" is a palindrome.';
+                } else {
+                    result.textContent = '"' + word + '" is not a palindrome.';
+                }
+            }
+        }
+    
+    </script>
+</body>
+</html>
